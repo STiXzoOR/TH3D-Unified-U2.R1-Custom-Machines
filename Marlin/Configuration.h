@@ -83,6 +83,8 @@
 
 // EZABL Probe Mounts -------------------------------------------------------
 //#define CR10_OEM                 //OEM Mount for Creality Machines (Ender3/5/CR-10/CR-10S)
+//#define ENDER2_OEM               //Ender 2 Specific OEM Mount
+//#define ENDER2_V6                //Ender 2 Specific V6 Mount
 //#define SV01_OEM_MOUNT           //Sovol SV01 OEM Mount
 //#define CR10_VOLCANO             //TH3D CR-10 Volcano Mount 
 //#define CR10_V6HEAVYDUTY         //V6 Heavy Duty Mount
