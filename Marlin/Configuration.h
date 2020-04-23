@@ -82,7 +82,7 @@
 //#define CR10S_STOCKFILAMENTSENSOR
 
 // EZABL Probe Mounts -------------------------------------------------------
-//#define CR10_OEM                 //OEM Mount for Creality Machines (Ender3/5/CR-10/CR-10S)
+//#define CR10_OEM                 //OEM Mount for Creality Machines (Ender3/5/CR-10/CR-10S/CR-20)
 //#define ENDER2_OEM               //Ender 2 Specific OEM Mount
 //#define ENDER2_V6                //Ender 2 Specific V6 Mount
 //#define SV01_OEM_MOUNT           //Sovol SV01 OEM Mount
