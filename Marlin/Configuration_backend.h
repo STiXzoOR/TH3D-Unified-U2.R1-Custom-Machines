@@ -64,13 +64,18 @@
 #endif
 
 //Creality and Sovol Settings
-#if ENABLED(CR10) || ENABLED(CR10_MINI) || ENABLED(CR10_S4) || ENABLED(CR10_S5) || ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER3) || ENABLED(ENDER5) || ENABLED(ENDER5_PLUS) || ENABLED(SOVOL_SV01)
+#if ENABLED(CR10) || ENABLED(CR10_MINI) || ENABLED(CR10_S4) || ENABLED(CR10_S5) || ENABLED(CR10S) || ENABLED(CR10S_MINI) || ENABLED(CR10S_S4) || ENABLED(CR10S_S5) || ENABLED(ENDER2) || ENABLED(ENDER3) || ENABLED(ENDER5) || ENABLED(ENDER5_PLUS) || ENABLED(SOVOL_SV01) || ENABLED(CR20)
+
   #define SERIAL_PORT -1
   #define BAUDRATE 115200
   
   #define EXTRUDERS 1
 
-  #define CR10_STOCKDISPLAY
+  #if ENABLED(CR20) || ENABLED(ENDER2)
+    #define MKS_MINI_12864
+  #else
+    #define CR10_STOCKDISPLAY
+  #endif
 
   #define SQUARE_WAVE_STEPPING
   
@@ -189,7 +194,7 @@
     #define Y_BED_SIZE 400
     #define Z_MAX_POS 400
     #define PRINTER_VOLTAGE_12
-	#define SLOWER_PROBE_MOVES
+	  #define SLOWER_PROBE_MOVES
   #endif
 
   #if ENABLED(CR10_S5)
@@ -197,7 +202,14 @@
     #define Y_BED_SIZE 500
     #define Z_MAX_POS 500
     #define PRINTER_VOLTAGE_12
-	#define SLOWER_PROBE_MOVES
+	  #define SLOWER_PROBE_MOVES
+  #endif
+
+  #if ENABLED(ENDER2)
+    #define X_BED_SIZE 160
+    #define Y_BED_SIZE 150
+    #define Z_MAX_POS 220
+    #define PRINTER_VOLTAGE_12
   #endif
 
   #if ENABLED(ENDER3)
@@ -244,6 +256,13 @@
     #define X_BED_SIZE 280
     #define Y_BED_SIZE 240
     #define Z_MAX_POS 300
+    #define PRINTER_VOLTAGE_24
+  #endif
+
+  #if ENABLED(CR20)
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 250
     #define PRINTER_VOLTAGE_24
   #endif
   
