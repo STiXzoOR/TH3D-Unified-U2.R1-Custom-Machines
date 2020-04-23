@@ -60,12 +60,14 @@
 //#define CR10S_S5
 
 // Ender Series -------------------------------------------------------------
+//#define ENDER2
 //#define ENDER3
 //#define ENDER5
 //#define ENDER5_PLUS
 
 // Other Machines -----------------------------------------------------------
-#define CR20
+//#define CR20 // The CR-20 Needs special LCD wiring with dupont jumper wires until we can release an adapter PCB.
+               // The diagram for wiring is in the firmware source folder called "CR20EZBoardLCDWiring.png". Dupont jumper wires will work to make the connections.
 
 // Sovol Machines -----------------------------------------------------------
 //#define SOVOL_SV01
@@ -74,13 +76,13 @@
 // If your machine came stock with a filament sensor it will be enabled automatically. If you replaced your stock sensor with our EZOut or you added an EZOut enabling the EZOUTV2_ENABLE will override the Creality sensor if your machine had one
 
 // If you are using our EZOut Sensor connect to the FIL SENSOR header with the RED wire lined up with the "5V" marking by the header and uncomment the below line.
-#define EZOUTV2_ENABLE
+//#define EZOUTV2_ENABLE
 
 // If you are using the Creality CR-10S Sensor connect to the FIL SENSOR header with the RED wire lined up with the "5V" marking by the header and uncomment the below line.
 //#define CR10S_STOCKFILAMENTSENSOR
 
 // EZABL Probe Mounts -------------------------------------------------------
-#define CR10_OEM                 //OEM Mount for Creality Machines (Ender3/5/CR-10/CR-10S)
+//#define CR10_OEM                 //OEM Mount for Creality Machines (Ender3/5/CR-10/CR-10S)
 //#define SV01_OEM_MOUNT           //Sovol SV01 OEM Mount
 //#define CR10_VOLCANO             //TH3D CR-10 Volcano Mount 
 //#define CR10_V6HEAVYDUTY         //V6 Heavy Duty Mount
@@ -130,6 +132,11 @@
 // Refer to the EZBoard installation documentation for connecting the PT100 to the EZBoard Expansion Header
 //#define EZBOARD_PT100
 
+// Ender Xtender Kit Options
+//#define ENDER_XTENDER_400
+//#define ENDER_XTENDER_400XL
+//#define ENDER_XTENDER_XL
+
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
 //===========================================================================
@@ -149,10 +156,10 @@
 
 // If you have issues with your machine running the faster probe setting disable the #define EZABL_FASTPROBE below.
 // NOTE: Most machines will work with the fast probe enabled. Use M48 to verify accuracy.
-//#define EZABL_FASTPROBE
+#define EZABL_FASTPROBE
 
 // Superfast probing - Only works with the EZABL Pro Sensors
-#define EZABL_SUPERFASTPROBE
+//#define EZABL_SUPERFASTPROBE
 
 // This will disable the XYE motors during probing. Can be useful if you have stepper motors causing interference issues with your ABL sensor.
 //#define PROBING_MOTORS_OFF
@@ -216,8 +223,8 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 463 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-#define CUSTOM_ESTEPS
-#define REVERSE_E_MOTOR_DIRECTION
+//#define CUSTOM_ESTEPS
+//#define REVERSE_E_MOTOR_DIRECTION
 #define CUSTOM_ESTEPS_VALUE 463
 
 // If you are using a pancake stepper enable the PANCAKE_STEPPER option to reduce the motor current to lower the stepper temperature
@@ -350,4 +357,4 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U2.R1.A4"
+#define UNIFIED_VERSION "TH3D U2.R1.B2"
