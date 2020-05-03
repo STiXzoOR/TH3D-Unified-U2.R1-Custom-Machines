@@ -359,4 +359,4 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U2.R1.B2"
+#define UNIFIED_VERSION "TH3D U2.R1.B3"
