@@ -1,15 +1,19 @@
 #pragma once
 
+#include "Configuration_stix.h"
+
 #define CONFIGURATION_BACKEND_H_VERSION 020000
 
 //===========================================================================
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define X_DRIVER_TYPE  TMC2208
-#define Y_DRIVER_TYPE  TMC2208
-#define Z_DRIVER_TYPE  TMC2208
-#define E0_DRIVER_TYPE TMC2208
+#if DISABLED(CUSTOM_DRIVERS)
+  #define X_DRIVER_TYPE  TMC2208
+  #define Y_DRIVER_TYPE  TMC2208
+  #define Z_DRIVER_TYPE  TMC2208
+  #define E0_DRIVER_TYPE TMC2208
+#endif
 
 //Sensor Mounts
 #if ENABLED(CUSTOM_PROBE)
