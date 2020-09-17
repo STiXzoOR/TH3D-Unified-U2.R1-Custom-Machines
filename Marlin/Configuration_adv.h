@@ -46,12 +46,19 @@
   #define WATCH_BED_TEMP_INCREASE 2
 #endif
 
-#if ENABLED(EZBOARD)
+#if ENABLED(EZBOARD) || ENABLED(BTTSKRE3MINIV2_0)
   #define USE_CONTROLLER_FAN
-  #if ENABLED(USE_CONTROLLER_FAN)
+#endif
+
+#if ENABLED(USE_CONTROLLER_FAN)
+  #if ENABLED(EZBOARD)
     #define CONTROLLER_FAN_PIN P1_22       // Set a custom pin for the controller fan
-    #define CONTROLLERFAN_SECS 60          // Duration in seconds for the fan to run after all motors are disabled
-    #define CONTROLLERFAN_SPEED 255        // 255 == full speed
+  #endif
+  #define CONTROLLERFAN_SECS 60             // Duration in seconds for the fan to run after all motors are disabled
+  #define CONTROLLERFAN_SPEED 255           // 255 == full speed
+  //#define CONTROLLER_FAN_EDITABLE      // Enable M710 configurable settings
+  #if ENABLED(CONTROLLER_FAN_EDITABLE)
+    #define CONTROLLER_FAN_MENU          // Enable the Controller Fan submenu
   #endif
 #endif
 
@@ -423,18 +430,33 @@
 #endif
 
 #define  X_SLAVE_ADDRESS 0
-#define  Y_SLAVE_ADDRESS 0
-#define  Z_SLAVE_ADDRESS 0
+#if ENABLED(BTTSKRE3MINIV1_0) || ENABLED(BTTSKRE3MINIV2_0) 
+  #define Y_SLAVE_ADDRESS 2
+#else
+  #define  Y_SLAVE_ADDRESS 0  
+#endif
+#if ENABLED(BTTSKRE3MINIV2_0) 
+  #define  Z_SLAVE_ADDRESS 1
+#else
+  #define  Z_SLAVE_ADDRESS 0
+#endif 
 #define X2_SLAVE_ADDRESS 0
 #define Y2_SLAVE_ADDRESS 0
 #define Z2_SLAVE_ADDRESS 0
 #define Z3_SLAVE_ADDRESS 0
-#define E0_SLAVE_ADDRESS 0
+#define Z4_SLAVE_ADDRESS 0
+#if ENABLED(BTTSKRE3MINIV1_0) || ENABLED(BTTSKRE3MINIV2_0) 
+  #define E0_SLAVE_ADDRESS 3
+#else
+  #define E0_SLAVE_ADDRESS 0
+#endif
 #define E1_SLAVE_ADDRESS 0
 #define E2_SLAVE_ADDRESS 0
 #define E3_SLAVE_ADDRESS 0
 #define E4_SLAVE_ADDRESS 0
 #define E5_SLAVE_ADDRESS 0
+#define E6_SLAVE_ADDRESS 0
+#define E7_SLAVE_ADDRESS 0
 
 #if HAS_TRINAMIC
 
