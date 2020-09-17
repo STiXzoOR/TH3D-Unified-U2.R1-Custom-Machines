@@ -617,6 +617,23 @@
   #define E4_HYBRID_THRESHOLD     30
   #define E5_HYBRID_THRESHOLD     30
 
+  #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
+    // TMC2209: 0...255. TMC2130: -64...63
+    #if AXIS_DRIVER_TYPE_X(TMC2209)
+      #define X_STALL_SENSITIVITY  120 // Please attempt to tune x stall sensititivy via host, M914 Xchang_value. Acceptable values 0 to 255
+      #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
+      #define Y_STALL_SENSITIVITY  120 // Please attempt to tune x stall sensititivy via host, M914 Ychang_value. Acceptable values 0 to 255
+    #else
+      #define X_STALL_SENSITIVITY  10 // Please attempt to tune x stall sensititivy via host, M914 Xchang_value. Acceptable values -63 to 63
+      #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY 
+      #define Y_STALL_SENSITIVITY  10 // Please attempt to tune x stall sensititivy via host, M914 Ychang_value
+    #endif
+
+    //#define Z_STALL_SENSITIVITY  8
+    //#define SPI_ENDSTOPS              // TMC2130 only
+    //#define IMPROVE_HOMING_RELIABILITY
+  #endif
+
   #define TMC_DEBUG
   #define TMC_ADV() {  }
 

@@ -324,7 +324,9 @@
 
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
-#define ENDSTOP_NOISE_THRESHOLD 2
+#if DISABLED(SENSORLESS_HOMING)
+  #define ENDSTOP_NOISE_THRESHOLD 2
+#endif
 
 #if ENABLED(EZBOARD_PT100)
   #define TEMP_SENSOR_0 20
@@ -548,6 +550,21 @@
     #define Z_MIN_PROBE_ENDSTOP_INVERTING false
     #undef Z_MIN_ENDSTOP_INVERTING
     #define Z_MIN_ENDSTOP_INVERTING false
+  #endif
+#endif
+
+#if ENABLED(SENSORLESS_HOMING)
+  #undef X_MIN_ENDSTOP_INVERTING
+  #if X_DRIVER_TYPE == TMC2209
+    #define X_MIN_ENDSTOP_INVERTING false
+  #else
+    #define X_MIN_ENDSTOP_INVERTING true
+  #endif
+  #undef Y_MIN_ENDSTOP_INVERTING
+  #if Y_DRIVER_TYPE == TMC2209
+    #define Y_MIN_ENDSTOP_INVERTING false
+  #else
+    #define Y_MIN_ENDSTOP_INVERTING true
   #endif
 #endif
 
